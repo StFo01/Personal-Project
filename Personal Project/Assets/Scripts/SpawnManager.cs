@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Numerics;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -42,7 +43,7 @@ public class SpawnManager : MonoBehaviour
     IEnumerator SpawnRandomEnemy()
     {   
         yield return new WaitForSeconds(startDelay);
-        while(player != null)
+        while(player != null && !restartButton.gameObject.activeSelf)
         {
             float randomX = Random.Range(-xEnemySpawn, xEnemySpawn);
             float randomZ = Random.Range(-zEnemySpawn, zEnemySpawn);
